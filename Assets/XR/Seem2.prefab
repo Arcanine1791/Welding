@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 5328549417195603311}
   - component: {fileID: 519006976238327719}
   - component: {fileID: 5775718582336526290}
-  m_Layer: 0
+  - component: {fileID: -4815033110156053299}
+  - component: {fileID: -7983894220525917163}
+  m_Layer: 11
   m_Name: Seem2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,3 +102,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 54
   m_CollisionDetection: 0
+--- !u!114 &-4815033110156053299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5391900255063810061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e20b1475259714bb36757d49009caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-7983894220525917163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5391900255063810061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9191303, y: 0.910614, z: 26.14959}
+  m_Center: {x: 0.004152119, y: -0.16004866, z: 12.893162}
