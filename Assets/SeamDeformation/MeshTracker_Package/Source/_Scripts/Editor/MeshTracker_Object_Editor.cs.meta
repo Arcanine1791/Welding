@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 7b231652305b39e4b884c72f0401eee8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _Editor_Banner: {fileID: 2800000, guid: 075137a6e1781ff4d971ddb05e5c0b0f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

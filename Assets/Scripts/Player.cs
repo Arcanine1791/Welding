@@ -70,6 +70,15 @@ public class Player : MonoBehaviour
             weldParticle.SetActive(false);
         }
 
+        if(readyWelding)
+        {
+            burningPoint.SetActive(true);
+        }
+
+        else { burningPoint.SetActive(false); }
+
+
+
     }
 
     public Rigidbody rb;

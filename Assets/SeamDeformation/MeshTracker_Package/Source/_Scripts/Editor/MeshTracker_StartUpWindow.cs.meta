@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 64d2f5bc8b070a84e9781ba93214d8a0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - Logo: {fileID: 2800000, guid: 075137a6e1781ff4d971ddb05e5c0b0f, type: 3}
+  - Home: {fileID: 2800000, guid: aab53b0f3023804498b8e6276295244a, type: 3}
+  - Web: {fileID: 2800000, guid: 1d0170e8f3dd1f544ad82204d95fc314, type: 3}
+  - Doc: {fileID: 2800000, guid: 06605f3112ee4df488f7452dd46cc94c, type: 3}
+  - Discord: {fileID: 2800000, guid: 58905dad3c685ca45a55b359070d4c79, type: 3}
+  - font: {fileID: 12800000, guid: 0576f9ad4c002504a9cecf45b5faefcb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

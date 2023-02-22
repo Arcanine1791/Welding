@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ed508c2ae8aaa5f48930e111669172ba
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _Editor_TrackCreatorIcon: {fileID: 2800000, guid: 0fa735b68d1e60041978d31932bf1545,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
