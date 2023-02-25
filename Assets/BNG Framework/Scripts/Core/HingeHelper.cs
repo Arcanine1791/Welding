@@ -38,17 +38,25 @@ namespace BNG {
         private float _lastDegrees = 0;
         private float _lastSnapDegrees = 0;
 
+        public float minDegree = 0;
+        public float maxDegree = 360;
+
+        public Grabber inHand;
+
         void Start() {
             rigid = GetComponent<Rigidbody>();
+            inHand = GameObject.FindGameObjectWithTag("Hands").GetComponent<Grabber>();
         }
 
         void Update() {
-
+            OnGrab();
+           
             // Update degrees our transform is representing
             float degrees = getSmoothedValue(transform.localEulerAngles.y);
+            Debug.Log(minDegree + ", " + degrees + ", " + maxDegree);
 
             // Call event if necessary
-            if(degrees != _lastDegrees) {
+            if (degrees != _lastDegrees) {
                 OnHingeChange(degrees);
             }
 
@@ -57,20 +65,27 @@ namespace BNG {
             // Check for snapping a graphics transform
             float nearestSnap = getSmoothedValue(Mathf.Round(degrees / SnapDegrees) * SnapDegrees);
 
-            // If snapping update graphics and call events
-            if (SnapToDegrees) {
 
-                // Check for snap event
-                if (nearestSnap != _lastSnapDegrees) {
-                    OnSnapChange(nearestSnap);
+            if (minDegree <= degrees && degrees <= maxDegree)
+            {
+                // If snapping update graphics and call events
+                if (SnapToDegrees)
+                {
+
+                    // Check for snap event
+                    if (nearestSnap != _lastSnapDegrees)
+                    {
+                        OnSnapChange(nearestSnap);
+                    }
+                    _lastSnapDegrees = nearestSnap;
                 }
-                _lastSnapDegrees = nearestSnap;
-            }
 
-            // Update label used for display or debugging
-            if (LabelToUpdate) {
-                float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
-                LabelToUpdate.text = val.ToString("n0");
+                // Update label used for display or debugging
+                if (LabelToUpdate)
+                {
+                    float val = getSmoothedValue(SnapToDegrees ? nearestSnap : degrees);
+                    LabelToUpdate.text = val.ToString("n0");
+                }
             }
         }
 
@@ -118,6 +133,25 @@ namespace BNG {
 
             return val;
         }
+
+        void OnGrab()
+        {
+            if (inHand.HeldGrabbable != null)
+            {
+                if (inHand.HeldGrabbable.name == "Power")
+                {
+                    minDegree = 0;
+                    maxDegree = 60;
+                }
+
+                else if (inHand.HeldGrabbable.name == "ProcessSelect" || inHand.HeldGrabbable.name == "AMP")
+                {
+                    minDegree = 0;
+                    maxDegree = 150;
+                }
+            }
+        }
+
     }
 }
 

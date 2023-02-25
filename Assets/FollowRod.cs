@@ -20,7 +20,7 @@ public class FollowRod : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(Rod.transform.position.x, Rod.transform.position.y +0.008f, Rod.transform.position.z);
+        this.transform.position = new Vector3(Rod.transform.position.x, Rod.transform.position.y/* + 0.008f*/, Rod.transform.position.z);
 
         if(Player.isHot)
         {

@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
     public float strength = 1;
     public float hardness = 1;
 
+    public float maxCDTime;
+    public float cdTime;
+
     private void Awake()
     {
         instance = this;
@@ -44,25 +47,37 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
+        float t = cdTime / maxCDTime;
+
         Vector3 difDir = Vector3.up;
         float dist = Vector3.Dot(difDir, this.transform.position - plate.transform.position);
-      //  Debug.Log(dist);    
+        //  Debug.Log(dist);    
 
-      //  if (readyWelding)
+        //  if (readyWelding)
         //{
-            
-            RaycastHit hit;
-            if (Physics.Raycast(this.transform.position, transform.TransformDirection(-Vector3.right), out hit, 100.0f))
+
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.right), out hit, 0.002f))
+        {
+            Debug.Log(hit.collider.name);
+
+            Debug.DrawRay(this.transform.position, hit.point - this.transform.position, Color.red);
+            if (hit.collider.tag=="Plate")
             {
-                Debug.DrawRay(this.transform.position, hit.point - this.transform.position, Color.red);
                 Paintable p = hit.collider.GetComponent<Paintable>();
                 if (p != null)
                 {
                     weldParticle.SetActive(true);
+                    //paintColor = Color.Lerp(Color.red, Color.gray, t);
                     PaintManager.instance.paint(p, this.transform.position, radius, hardness, strength, paintColor);
                     rodOffsetObj.transform.localScale -= new Vector3(rodOffsetObj.transform.localScale.x * Time.deltaTime * meltingSize, 0, 0);
+
                 }
             }
+
+
+        }
         //}
 
         else
@@ -70,12 +85,17 @@ public class Player : MonoBehaviour
             weldParticle.SetActive(false);
         }
 
-        if(readyWelding)
+        if (readyWelding)
         {
             burningPoint.SetActive(true);
+            cdTime += Time.deltaTime;
         }
 
-        else { burningPoint.SetActive(false); }
+        else
+        {
+            burningPoint.SetActive(false);
+            cdTime = 0;
+        }
 
 
 

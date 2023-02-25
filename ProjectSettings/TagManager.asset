@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plate
   - Edge
+  - Hands
   layers:
   - Default
   - TransparentFX
